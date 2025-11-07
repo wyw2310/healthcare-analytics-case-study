@@ -25,5 +25,18 @@ The goal: uncover actionable insights that improve patient care, streamline reso
 - Power BI
 - Jupyter Notebook
 
+## 📁 Project Structure & Reproducibility
+
+This project uses a modular, versioned workflow to support reproducible analytics across devices and sessions.
+
+### Folder Structure
+data/ ├── raw/               # Original Excel dataset (dummy data) ├── staging/           # Intermediate pickle files for fast reloads ├── cleansed/          # Cleaned dataset with normalized dates and numeric fields ├── transformed/       # Final dataset with engineered features notebooks/ └── sjghc_analysis.ipynb  # Main analysis notebook
+
+### Versioned Data Loading
+The notebook includes a reusable function to load data based on version checkpoints:
+
+```python
+df = load_or_create_df(version="raw", excel_path="...")
+
 ## 👤 Author
 Kevin Wang – Data Analyst | Healthcare Insights | Workflow Automation
